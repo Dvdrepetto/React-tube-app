@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { RateReview } from '@mui/icons-material';
+import {useEffect, useState } from 'react';
 
 const Video = ({thumbnail, title, dateAdded, channel, description, start, report}) => {
     const [rate, setRate] = useState(start);    //hook
@@ -9,6 +10,12 @@ const Video = ({thumbnail, title, dateAdded, channel, description, start, report
     const handleClick = () => {
         setRate(rate+1);
     }
+
+    //componenteDidMount
+    //Dependencia del UseEffect
+    useEffect(() => {
+        console.log(`Video ${title} se actualizó`)
+    }, [rate]); // []dependencia del useEffect
 
     return (
         <div className="video-container">
